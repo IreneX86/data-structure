@@ -1,0 +1,9 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/irenex/Desktop/data-structure/search/binary_search'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _binary_search_iteration, symObjAddr: 0x0, symBinAddr: 0x100003C3C, symSize: 0xE0 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _binary_search_iteration, symObjAddr: 0x0, symBinAddr: 0x100003C3C, symSize: 0xE0 }
+  - { offsetInCU: 0xBD, offset: 0xBD, size: 0x8, addend: 0x0, symName: _binary_search_recursion, symObjAddr: 0xE0, symBinAddr: 0x100003D1C, symSize: 0xF4 }
+  - { offsetInCU: 0x11D, offset: 0x11D, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1D4, symBinAddr: 0x100003E10, symSize: 0xE4 }
+...
