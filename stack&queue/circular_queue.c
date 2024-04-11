@@ -8,7 +8,7 @@
     操作：1.初始化队列
          2.入队
          3.出队
-         4.判断队空
+         4.判断队满or空
 
     Author: IreneX86
     Email: Irene.127.0.0.1@gmail.com
