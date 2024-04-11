@@ -36,12 +36,13 @@ int kmp(char *master, char *sub)
     int next[len_sub];
     Next(sub, next);
 
+    // 此处输出next数组 仅仅是为了更直观
     printf("next_array: ");
-    for (int l = 0; l < len_sub - 1; l++)
+    for (int l = 0; l < len_sub; l++)
     {
-        printf("%d->", next[l]);
+        printf(l == 0 ? "%d" : "->%d", next[l]);
     }
-    printf("%d\n", next[len_sub - 1]);
+    printf("\n");
 
     int i = 0, j = 0;
     while (i < len_master)
