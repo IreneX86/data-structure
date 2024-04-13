@@ -33,15 +33,19 @@ typedef struct TreeNode
 void create_tree(treeNode_t **tree)
 {
     char ch;
-    scanf("%c\n", &ch);
+    scanf(" %c", &ch); // 此处使用 scanf(" %c", &ch);（注意 %c 前的空格），这样可以自动忽略任何空白字符，包括空格、制表符和新行。
 
     if (ch == '#') // 用 '#' 代表空结点。
-    {
         *tree = NULL;
-    }
     else
     {
         *tree = (treeNode_t *)malloc(sizeof(treeNode_t));
+        /*
+        if (!(*tree)) {
+            fprintf(stderr, "Memory allocation failed\n");
+            exit(EXIT_FAILURE);
+        }
+        */
         (*tree)->data = ch;
         create_tree(&((*tree)->lchild));
         create_tree(&((*tree)->rchild));
@@ -105,14 +109,11 @@ void pre_order_print_leaves(treeNode_t *tree) // 先序遍历输出二叉树叶�
 
 int post_order_get_height(treeNode_t *tree) // 后序遍历求二叉树的高度
 {
-    int l_height, r_height, max_height;
-
     if (tree)
     {
-        l_height = post_order_get_height(tree->lchild);
-        r_height = post_order_get_height(tree->rchild);
-        max_height = (l_height > r_height) ? l_height : r_height;
-        return (max_height + 1);
+        int l_height = post_order_get_height(tree->lchild);
+        int r_height = post_order_get_height(tree->rchild);
+        return (l_height > r_height ? l_height : r_height) + 1;
     }
     else
         return 0;
@@ -121,7 +122,6 @@ int post_order_get_height(treeNode_t *tree) // 后序遍历求二叉树的高度
 int main(int argc, char *argv[])
 {
     treeNode_t *T = NULL;
-    // int index = 0;
     create_tree(&T);
 
     printf("\nPreOrder:");
