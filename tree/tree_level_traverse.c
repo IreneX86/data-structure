@@ -25,7 +25,7 @@ typedef struct TreeNode
     struct TreeNode *rchild;
 } treeNode_t;
 
-// 循环队列节点定义
+// 队列节点定义
 typedef struct QueueNode
 {
     treeNode_t *t_node; // 存放指向树节点的指针。
@@ -69,7 +69,7 @@ void free_tree(treeNode_t *tree)
     }
 }
 
-// 初始化一个空的循环队列，返回队列头节点
+// 初始化一个空的队列，返回队列头节点
 queueNode_t *init_queue()
 {
     queueNode_t *queue = (queueNode_t *)malloc(sizeof(queueNode_t));
@@ -79,15 +79,15 @@ queueNode_t *init_queue()
         exit(EXIT_FAILURE);
     }
     */
-    queue->t_node = NULL; // 设置哨兵节点的数据为NULL
-    queue->next = queue;  // 初始化为循环队列，next指向自身
+    queue->t_node = NULL;
+    queue->next = NULL;
     return queue;
 }
 
-// 判断队空，如果队列中只有哨兵节点，则为空
+// 判断队空
 int is_empty(queueNode_t *queue)
 {
-    return queue->next == queue;
+    return queue->next == NULL;
 }
 
 // 入队(尾插法)
