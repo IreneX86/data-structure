@@ -117,9 +117,11 @@ void pre_thread(treeNode_t *tree, treeNode_t **pre)
 
         *pre = tree; // 更新前驱节点pre为当前节点
 
+        // 通过检查 l_tag 和 r_tag 确定是否对子树进行递归。这样可以防止对线索指针进行递归，从而保护程序不会访问非法内存。
         if (tree->l_tag == 0)              // 当有左子树时
             pre_thread(tree->lchild, pre); // 递归左子树
-        pre_thread(tree->rchild, pre);     // 递归右子树
+        if (tree->r_tag == 0)              // 当有左子树时
+            pre_thread(tree->rchild, pre); // 递归右子树
     }
 }
 
