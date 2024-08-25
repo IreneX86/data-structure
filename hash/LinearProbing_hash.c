@@ -28,8 +28,14 @@ int linear_probe(int hash_table[], int key)
 
 int main(int argc, char *argv[])
 {
-    int hash_table[SIZE] = {-1}; // 初始化哈希表，-1 表示空位置
-
+    // int hash_table[SIZE] = {-1}; // 初始化哈希表，-1 表示空位置
+    // 此处有误。此语法只会将数组的第一个元素初始化为 -1，而其他元素将被初始化为 0。
+    // 为初始化整个数组为 -1，需要通过循环手动初始化每个元素：
+    int hash_table[SIZE];
+    for (int i = 0; i < SIZE; i++) {
+        hash_table[i] = -1;
+    }
+    
     int keys[] = {23, 45, 34, 67, 78, 89, 56};
     for (int i = 0; i < sizeof(keys) / sizeof(keys[0]); i++)
     {
